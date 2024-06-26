@@ -1,0 +1,19 @@
+* {
+   background-color: white;
+   --sidebar-color: #0CB8FD;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.card {
+    width: 400px;
+}
+
+.date {
+    float: right;
+}
