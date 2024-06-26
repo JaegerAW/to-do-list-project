@@ -34,8 +34,9 @@ export default function renderMain(event) {
   
    tasks.textContent = myProjects[index].tasks[i].name;
    tasks.classList.add('tasks');
+   tasks.appendChild(deleteBtn);
    projectCard.appendChild(tasks);
-   projectCard.appendChild(deleteBtn);
+  
 }
     mainContent.appendChild(projectCard)
 
