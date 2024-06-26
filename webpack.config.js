@@ -5,6 +5,7 @@ module.exports = {
     mode: "development", //required
 entry: {
     index: './src/index.js',
+    renderMain: './src/renderMain.js',
 },
 devtool: 'inline-source-map',
 output: {

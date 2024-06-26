@@ -1,53 +1,33 @@
 import './styles.css';
+import { myProjects } from './myProjects.js';
+import renderMain from './renderMain.js';
+
+
+
+
 
 const mainContent = document.querySelector('#main');
-const sideBar = document.querySelector('#sidebar');
+const sideBar = document.querySelector('#sidebarproject');
 
 
 
 
-const myProjects = [
-    {
-        name: "Go to supermarket",
-        due: "12/2/25",
-        tasks: [
-                    {
-                        name: "Buy apples",
-                        priority: "high"
-                    },
-                    {
-                        name: "Buy Eggs",
-                        priority: "medium"
-                    }
-                ]
-    },
-    {
-        name: "Clean the house",
-        due: "13/2/25",
-        tasks: [
-                    {
-                        name: "Sweep and mop the floor",
-                        priority: "high"
-                    },
-                    {
-                        name: "Do laundry",
-                        priority: "high"
-                    }
-                ]
-    }
-];
+
+
 function renderSidebar() {
-    let sidebarHTML = '<h1>TO DO LIST</h1>';
+    let sidebarHTML = '';
     myProjects.forEach((project, index) => {
         sidebarHTML += `<div class="projects" id="project-${index}">${project.name}</div>`
 
     })
-    sideBar.innerHTML = sidebarHTML;
+    sideBar.innerHTML += sidebarHTML;
     const projects = document.querySelectorAll('.projects');
     projects.forEach(project => 
         project.addEventListener('click', renderMain)
     )
 }
+
+/*
 function renderMain(event) {
 
     let index = parseInt(event.target.id.split('-')[1]);
@@ -73,6 +53,7 @@ function renderMain(event) {
     mainContent.appendChild(projectCard)
 
 }
+*/
 
 
 renderSidebar();
@@ -150,4 +131,36 @@ btn.textContent = "test";
 
 document.body.appendChild(btn)
 
+*/
+
+/*const myProjects = [
+    {
+        name: "Go to supermarket",
+        due: "12/2/25",
+        tasks: [
+                    {
+                        name: "Buy apples",
+                        priority: "high"
+                    },
+                    {
+                        name: "Buy Eggs",
+                        priority: "medium"
+                    }
+                ]
+    },
+    {
+        name: "Clean the house",
+        due: "13/2/25",
+        tasks: [
+                    {
+                        name: "Sweep and mop the floor",
+                        priority: "high"
+                    },
+                    {
+                        name: "Do laundry",
+                        priority: "high"
+                    }
+                ]
+    }
+]; 
 */
