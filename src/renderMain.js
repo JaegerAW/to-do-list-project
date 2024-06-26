@@ -28,6 +28,10 @@ export default function renderMain(event) {
     const tasks = document.createElement('div');
    const deleteBtn = document.createElement('button');
    deleteBtn.textContent = 'Delete Task';
+   deleteBtn.addEventListener('click', ()=>{
+    myProjects[index].tasks.splice(i, 1);
+    renderMain(event);
+   })
  
 
    
