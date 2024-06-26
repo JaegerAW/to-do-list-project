@@ -3,7 +3,7 @@ import './styles.css';
 const mainContent = document.querySelector('#main');
 const sideBar = document.querySelector('#sidebar');
 
-const array = [1,2,3];
+
 
 
 const myProjects = [
@@ -37,7 +37,7 @@ const myProjects = [
     }
 ];
 function renderSidebar() {
-    let sidebarHTML = '';
+    let sidebarHTML = '<h1>TO DO LIST</h1>';
     myProjects.forEach((project, index) => {
         sidebarHTML += `<div class="projects" id="project-${index}">${project.name}</div>`
 
@@ -49,7 +49,9 @@ function renderSidebar() {
     )
 }
 function renderMain(event) {
+
     let index = parseInt(event.target.id.split('-')[1]);
+
    
     
     const projectCard = document.createElement('div');
@@ -66,7 +68,7 @@ function renderMain(event) {
     projectCard.appendChild(projectDue);
 
    for (let i = 0; i < myProjects[index].tasks.length; i++) {
-    projectCard.innerHTML +=`<div class="tasks"><input type='checkbox'>${myProjects[index].tasks[i].name}</div>`;
+    projectCard.innerHTML +=`<div class="tasks ${myProjects[index].tasks[i].priority}"><input type='checkbox'>${myProjects[index].tasks[i].name}</div>`;
    }
     mainContent.appendChild(projectCard)
 

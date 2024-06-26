@@ -1,6 +1,8 @@
 * {
    background-color: white;
    --sidebar-color: #0CB8FD;
+   padding: 0;
+   margin: 0;
 }
 
 .container {
@@ -10,10 +12,41 @@
     overflow: scroll;
 }
 
+
+.sidebar{
+    background-color: var(--sidebar-color);
+}
+
+.sidebar > h1 {
+    background-color: var(--sidebar-color);
+}
+
+.projects {
+    background-color: var(--sidebar-color);
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 20px;
+    font-weight: bold;
+}
 .card {
     width: 400px;
+   
+    border-radius: 20px;
+}
+
+.cardheader {
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
 .date {
-    float: right;
+    position: relative;
+    left: 0px;
+    top: 0px;
+
+}
+
+.high {
+    background-color: red;
+    
 }
