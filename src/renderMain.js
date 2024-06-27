@@ -1,7 +1,11 @@
 import { myProjects } from './myProjects.js';
+import { submitNewTaskBtn } from './addTaskModal.js';
+import createTask from './addTask.js';
 import { addTaskModal } from './addTaskModal.js';
-
 const mainContent = document.querySelector('#main');
+
+
+
 export default function renderMain(event) {
 
 
@@ -28,7 +32,7 @@ export default function renderMain(event) {
 
     //const createTask = (task, priority) => {}
 
-        
+        submitNewTaskBtn.addEventListener('click', createTask)
     
   
    for (let i = 0; i < myProjects[index].tasks?.length; i++) {

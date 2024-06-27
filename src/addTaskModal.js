@@ -42,3 +42,4 @@ addTaskModal.appendChild(submitNewTaskBtn);
 
 
 export { addTaskModal };
+export { submitNewTaskBtn };
