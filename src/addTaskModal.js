@@ -31,10 +31,14 @@ selectLow.textContent = "Low";
 newPriorityInput.appendChild(selectLow);
 newPriority.appendChild(newPriorityInput);
 
+const submitNewTaskBtn = document.createElement('button');
+submitNewTaskBtn.textContent = "Add Task";
+
+
 
 addTaskModal.appendChild(newTask);
 addTaskModal.appendChild(newPriority);
-
+addTaskModal.appendChild(submitNewTaskBtn);
 
 
 export { addTaskModal };

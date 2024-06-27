@@ -11,7 +11,7 @@ export default function renderMain(event) {
    
     let index = parseInt(event.target.id.split('-')[1]);
 
-   
+   //try creating the addTask button here.
     
     const projectCard = document.createElement('div');
     projectCard.classList.add('card');
@@ -26,6 +26,10 @@ export default function renderMain(event) {
     projectDue.classList.add('date');
     projectCard.appendChild(projectDue);
 
+    //const createTask = (task, priority) => {}
+
+        
+    
   
    for (let i = 0; i < myProjects[index].tasks?.length; i++) {
 
