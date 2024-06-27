@@ -42,13 +42,6 @@ renderSidebar();
 mainContent.appendChild(addTaskModal);
 
 
-const addTaskBtn = document.createElement('button');
-addTaskBtn.textContent = "Add Task";
-mainContent.appendChild(addTaskBtn);
-addTaskBtn.addEventListener('click', ()=>{
-    addTaskModal.showModal();
-
-});
 
 
 

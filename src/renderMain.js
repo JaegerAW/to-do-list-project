@@ -6,7 +6,7 @@ export default function renderMain(event) {
 
 
 
-    
+    mainContent.textContent = '';
     mainContent.appendChild(addTaskModal);
    
     let index = parseInt(event.target.id.split('-')[1]);
@@ -49,7 +49,14 @@ export default function renderMain(event) {
    projectCard.appendChild(tasks);
   
 }
+const addTaskBtn = document.createElement('button');
+addTaskBtn.textContent = "Add Task";
+mainContent.appendChild(addTaskBtn);
+addTaskBtn.addEventListener('click', ()=>{
+    addTaskModal.showModal();
 
+});
+    mainContent.appendChild(addTaskBtn);
     mainContent.appendChild(projectCard)
 
 }

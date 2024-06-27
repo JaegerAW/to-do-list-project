@@ -1,5 +1,5 @@
 const addTaskModal = document.createElement('dialog');
-const mainContent = document.querySelector('#main');
+
 addTaskModal.classList.add('modal');
 
 //create label and input box for user to input new task title

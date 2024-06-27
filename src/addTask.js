@@ -1,5 +1,5 @@
 import { myProjects } from './myProjects.js';
-
+import { addTaskModal } from './addTaskModal.js';
 
 export default function createTask() {
     //console.log('hello');
