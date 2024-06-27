@@ -2,6 +2,7 @@ import { myProjects } from './myProjects.js';
 
 const mainContent = document.querySelector('#main');
 export default function renderMain(event) {
+    
     mainContent.textContent = '';
     let index = parseInt(event.target.id.split('-')[1]);
 
@@ -21,7 +22,7 @@ export default function renderMain(event) {
     projectCard.appendChild(projectDue);
 
   
-   for (let i = 0; i < myProjects[index].tasks.length; i++) {
+   for (let i = 0; i < myProjects[index].tasks?.length; i++) {
 
     //projectCard.innerHTML +=`<div class="tasks ${myProjects[index].tasks[i].priority}"><input type='checkbox'>${myProjects[index].tasks[i].name}</div>`;
     
@@ -30,10 +31,11 @@ export default function renderMain(event) {
    deleteBtn.textContent = 'Delete Task';
    deleteBtn.addEventListener('click', ()=>{
     myProjects[index].tasks.splice(i, 1);
+    localStorage.setItem('projects', JSON.stringify(myProjects));
     renderMain(event);
    })
  
-
+//when we want to update after delete, just store with same "key" and the "key" will be updated.
    
   
    tasks.textContent = myProjects[index].tasks[i].name;

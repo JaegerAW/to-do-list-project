@@ -6,6 +6,8 @@ module.exports = {
 entry: {
     index: './src/index.js',
     renderMain: './src/renderMain.js',
+    myProjects: './src/myProjects.js',
+    createProject: './src/createProject.js'
 },
 devtool: 'inline-source-map',
 output: {
