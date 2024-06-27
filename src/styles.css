@@ -73,3 +73,7 @@ select {
     border: 2px solid black;
     width: 150px;
 }
+
+.hidden {
+    display: none;
+}

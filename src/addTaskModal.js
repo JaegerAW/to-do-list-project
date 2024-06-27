@@ -2,6 +2,7 @@ const addTaskModal = document.createElement('dialog');
 
 addTaskModal.classList.add('modal');
 
+
 //create label and input box for user to input new task title
 const newTask = document.createElement('div');
 newTask.classList.add('modallabel');
@@ -43,3 +44,5 @@ addTaskModal.appendChild(submitNewTaskBtn);
 
 export { addTaskModal };
 export { submitNewTaskBtn };
+export { newTaskInput };
+export { newPriorityInput };
