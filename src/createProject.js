@@ -14,6 +14,9 @@ const createProject = (title, date) => {
 }
 
 addProjectBtn.addEventListener('click', ()=>{
+    if(!newTitleInput.value || !newDueInput.value) {
+        return;
+    }
     myProjects.push(createProject(newTitleInput.value, newDueInput.value));
     localStorage.setItem('projects', JSON.stringify(myProjects));
     
