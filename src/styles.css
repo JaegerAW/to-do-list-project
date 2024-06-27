@@ -50,3 +50,26 @@
     background-color: red;
     
 }
+
+.modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 400px;
+    height: 300px;
+}
+
+.modallabel {
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+.prioritylabel {
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+select {
+    border: 2px solid black;
+    width: 150px;
+}

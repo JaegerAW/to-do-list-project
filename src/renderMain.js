@@ -1,9 +1,12 @@
 import { myProjects } from './myProjects.js';
-
+import { addTaskModal } from './addTaskModal.js';
 const mainContent = document.querySelector('#main');
 export default function renderMain(event) {
-    
-    mainContent.textContent = '';
+
+
+
+
+    mainContent.appendChild(addTaskModal);
     let index = parseInt(event.target.id.split('-')[1]);
 
    
@@ -44,6 +47,7 @@ export default function renderMain(event) {
    projectCard.appendChild(tasks);
   
 }
+
     mainContent.appendChild(projectCard)
 
 }
