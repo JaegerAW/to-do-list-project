@@ -1,7 +1,9 @@
 const addTaskModal = document.createElement('dialog');
 
 addTaskModal.classList.add('modal');
+//const addTaskModal = document.createElement('div');
 
+//addTaskModal.classList.add('hidden');
 
 //create label and input box for user to input new task title
 const newTask = document.createElement('div');
@@ -32,8 +34,10 @@ selectLow.textContent = "Low";
 newPriorityInput.appendChild(selectLow);
 newPriority.appendChild(newPriorityInput);
 
+//button to submit new task to the project
 const submitNewTaskBtn = document.createElement('button');
 submitNewTaskBtn.textContent = "Add Task";
+
 
 
 

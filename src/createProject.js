@@ -8,7 +8,7 @@ const addProjectBtn = document.querySelector('#addnewproject');
 
 const createProject = (title, date) => {
     return {
-        "name": title, "due": date
+       id: myProjects.length, "name": title, "due": date
     };
 
 }

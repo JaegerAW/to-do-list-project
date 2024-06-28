@@ -1,5 +1,6 @@
 let myProjects = JSON.parse(localStorage.getItem('projects')) || [
-    {
+    {   
+        id: 0,
         name: "Go to supermarket",
         due: "12/2/25",
         tasks: [
@@ -14,6 +15,7 @@ let myProjects = JSON.parse(localStorage.getItem('projects')) || [
                 ]
     },
     {
+        id: 1,
         name: "Clean the house",
         due: "13/2/25",
         tasks: [
@@ -29,6 +31,7 @@ let myProjects = JSON.parse(localStorage.getItem('projects')) || [
     }
 ];
 
+export { myProjects };
 
 //COBA! const storedProjects = localStorage.setItem('projects', JSON.stringify(myProjects));
 
@@ -45,4 +48,3 @@ localStorage.setItem('projects', JSON.stringify(myProjects));
 
 //when i delete from local storage, renderMain doesnt show updated version as it renders myProjects.
 //add project function should be here. get the dom for the form to add project here too
-export { myProjects };
