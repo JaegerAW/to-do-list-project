@@ -28,8 +28,18 @@ function renderSidebar() {
         project.addEventListener('click', renderMain)
     )
 }
-
-
+//Stackoverflow suggestion, uses map on myProjects array. adds eventlistener to sidebar instead, use closest() function to target closest project from the clicks.
+/*
+const renderSidebar = () => {
+    sideBar.innerHTML = myProjects
+    .map((project, index) => `<div class="projects" data-name="${project.name}" data-index="${index}">${project.name}</div>`).join('');
+  };
+  sideBar.addEventListener('click', (e) => {
+    const tgt = e.target.closest('div.projects');
+    if (!tgt) return; // we did not click in a project
+    renderMain(tgt.dataset.index, tgt.dataset.name) //if click close enough to the project, can detect datasets index and name, and use it in renderMain.goddamn
+  })
+*/
 
 
 renderSidebar();
