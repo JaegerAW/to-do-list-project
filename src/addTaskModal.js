@@ -1,3 +1,5 @@
+import { myProjects } from "./myProjects";
+
 const addTaskModal = document.createElement('dialog');
 
 addTaskModal.classList.add('modal');
@@ -21,6 +23,7 @@ newPriority.textContent = "Priority: ";
 newPriority.classList.add('prioritylabel');
 const newPriorityInput = document.createElement('select');
 newPriorityInput.setAttribute('id', 'newpriorityinput');
+
 //add options to select
 const selectHigh = document.createElement('option');
 selectHigh.textContent = "High";
@@ -37,6 +40,9 @@ newPriority.appendChild(newPriorityInput);
 //button to submit new task to the project
 const submitNewTaskBtn = document.createElement('button');
 submitNewTaskBtn.textContent = "Add Task";
+submitNewTaskBtn.addEventListener('click', ()=>{
+    
+})
 
 
 

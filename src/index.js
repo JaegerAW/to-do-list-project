@@ -33,7 +33,7 @@ function renderSidebar() {
 
 
 renderSidebar();
-//create modal to add task
+
 
 
 

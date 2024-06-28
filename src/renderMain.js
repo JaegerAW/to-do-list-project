@@ -14,7 +14,7 @@ export default function renderMain(event) { //render project from sidebar to mai
     mainContent.appendChild(addTaskModal); //dialog to input new task and its priority
    
     let index = parseInt(event.target.id.split('-')[1]);
-   
+  
    
     
     const projectCard = document.createElement('div');
