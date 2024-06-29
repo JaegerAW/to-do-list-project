@@ -16,15 +16,19 @@ const sideBar = document.querySelector('#sidebarproject');
 
 
 
-const renderSidebar = () => {
-    sideBar.innerHTML = myProjects
-    .map((project, index) => `<div class="projects" data-name="${project.name}" data-index="${index}">${project.name}</div>`).join('');
-  };
-  sideBar.addEventListener('click', (e) => {
-    const tgt = e.target.closest('div.projects');
-    if (!tgt) return; // we did not click in a project
-    renderMain(tgt.dataset.index, tgt.dataset.name)
-  })
+function renderSidebar() {
+    let sidebarHTML = '';
+    myProjects.forEach((project, index) => {
+        sidebarHTML += `<div class="projects" id="project-${index}">${project.name}</div>`
+
+    })
+    sideBar.innerHTML += sidebarHTML;
+    const projects = document.querySelectorAll('.projects');
+    projects.forEach(project => 
+        project.addEventListener('click', renderMain)
+    )
+}
+
 
 
 

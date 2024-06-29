@@ -1,8 +1,9 @@
 import { myProjects } from "./myProjects";
 
-const addTaskModal = document.createElement('dialog');
+const addTaskModal = document.createElement('div');
 
 addTaskModal.classList.add('modal');
+addTaskModal.classList.add('hidden');
 //const addTaskModal = document.createElement('div');
 
 //addTaskModal.classList.add('hidden');
@@ -40,9 +41,6 @@ newPriority.appendChild(newPriorityInput);
 //button to submit new task to the project
 const submitNewTaskBtn = document.createElement('button');
 submitNewTaskBtn.textContent = "Add Task";
-submitNewTaskBtn.addEventListener('click', ()=>{
-    
-})
 
 
 
