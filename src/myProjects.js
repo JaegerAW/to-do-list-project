@@ -20,10 +20,12 @@ let myProjects = JSON.parse(localStorage.getItem('projects')) || [
         due: "13/2/25",
         tasks: [
                     {
+                        id: 0,
                         name: "Sweep and mop the floor",
                         priority: "high"
                     },
                     {
+                        id: 1,
                         name: "Do laundry",
                         priority: "high"
                     }

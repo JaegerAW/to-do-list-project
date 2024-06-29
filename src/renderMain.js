@@ -1,39 +1,27 @@
 import { myProjects } from './myProjects.js';
 
 
-import { addTaskModal } from './addTaskModal.js';
+import { submitNewTaskBtn, addTaskModal } from './addTaskModal.js';
 
 
 const mainContent = document.querySelector('#main');
+const tasksContainer = document.querySelector('#tasks-container');
 
 
 
-export default function renderMain(event) { //render project from sidebar to mainContent body
+export default function renderMain(index, projectName) { //render project from sidebar to mainContent body
 
-    mainContent.textContent = '';
-    mainContent.appendChild(addTaskModal); //dialog to input new task and its priority
-   
-    let index = parseInt(event.target.id.split('-')[1]);
-  
-   
-    
-    const projectCard = document.createElement('div');
-    projectCard.classList.add('card');
-    projectCard.setAttribute('id', myProjects[index].id);
+    tasksContainer.innerHTML = '';
+    tasksContainer.innerHTML = `
+    <div class="card" id="${myProjects[index].id}">
+        <h2 class="cardheader">${myProjects[index].name}</h2>
+        <div class="date">${myProjects[index].due}</div>
+    </div>
 
-    const projectCardHeader = document.createElement('h3');
-    projectCardHeader.classList.add('cardheader');
-    projectCardHeader.textContent =  myProjects[index].name
-    projectCard.appendChild(projectCardHeader);    
-   
-    const projectDue = document.createElement('div');
-    projectDue.textContent = myProjects[index].due;
-    projectDue.classList.add('date');
-    projectCard.appendChild(projectDue);
+    `
+    const projectCard = document.querySelector('.card');
 
-       
-    
-  
+
     for (let i = 0; i < myProjects[index].tasks?.length; i++) {
     
         const tasks = document.createElement('div');
@@ -41,8 +29,8 @@ export default function renderMain(event) { //render project from sidebar to mai
         deleteBtn.textContent = 'Delete Task';
         deleteBtn.addEventListener('click', ()=>{
         myProjects[index].tasks.splice(i, 1);
-        localStorage.setItem('projects', JSON.stringify(myProjects));
-        renderMain(event);
+        
+        renderMain(index, projectName);
         })
  
     //when we want to update after delete, just store with same "key" and the "key" will be updated.
@@ -54,19 +42,21 @@ export default function renderMain(event) { //render project from sidebar to mai
         projectCard.appendChild(tasks);
         
     }
-
-    const addTaskBtn = document.createElement('button');
-    addTaskBtn.textContent = "Add Task";
-    mainContent.appendChild(addTaskBtn);
-    addTaskBtn.addEventListener('click', ()=>{
-        
-        addTaskModal.showModal();
-
-    });
-    mainContent.appendChild(addTaskBtn);
-    mainContent.appendChild(projectCard)
-
-
-
 }
+
+
+ 
+   
+    /*
+    projectCard.addEventListener('click', (e) => { 
+        const tgt = e.target.closest('button.delete'); 
+        if (!tgt) return; 
+        myProjects[tgt.dataset.index].tasks.splice(tgt.dataset.index, 1);
+        renderMain(tgt.dataset.index,tgt.dataset.projectname);
+      });
+    */
+
+
+
+
 
