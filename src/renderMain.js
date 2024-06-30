@@ -134,12 +134,14 @@ const submitNewTask =() => {
         myProjects[currentProjectIndex].tasks = 
             [createTask(newTaskInput.value, newPriorityInput.value)];
             addTaskModal.classList.toggle('hidden');
+            newTaskInput.value = '';
             updateTaskContainer();
         
     }
   
     else {myProjects[currentProjectIndex].tasks.push(createTask(newTaskInput.value, newPriorityInput.value));
 localStorage.setItem('projects', JSON.stringify(myProjects));
+newTaskInput.value = '';
 addTaskModal.classList.toggle('hidden');
 updateTaskContainer();
     }};
