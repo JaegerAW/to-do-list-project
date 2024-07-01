@@ -8,6 +8,7 @@ import createTask  from './addTask.js';
 const mainContent = document.querySelector('#main');
 
 let currentProjectIndex;
+let currentTaskIndex;
 
 export default function renderMain(event) { //render project from sidebar to mainContent body
 
@@ -49,13 +50,16 @@ export default function renderMain(event) { //render project from sidebar to mai
         taskDescription.textContent = myProjects[currentProjectIndex].tasks[i].description;
         taskDescription.classList.add('taskdescription');
 
-       /* const editBtn = document.createElement('button');
+        const editBtn = document.createElement('button');
         editBtn.textContent = "Edit Task";
-        editBtn.addEventListener('click', ()=>{
-            editTaskBtn(this);
+        editBtn.setAttribute('id', `edit-${i}`);
+        editBtn.addEventListener('click', (e)=>{
+            addTaskModal.classList.toggle('hidden');
+            currentTaskIndex = parseInt(e.target.id.split('-')[1]);
+            console.log(currentTaskIndex);
         }
         )
-        */
+        
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete Task';
         deleteBtn.addEventListener('click', ()=>{
@@ -66,7 +70,7 @@ export default function renderMain(event) { //render project from sidebar to mai
  
 
         tasks.appendChild(deleteBtn);
-       // tasks.appendChild(editBtn);
+        tasks.appendChild(editBtn);
         tasks.appendChild(taskDescription);
         projectCard.appendChild(tasks);
         
