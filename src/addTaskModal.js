@@ -37,18 +37,28 @@ selectLow.textContent = "Low";
 newPriorityInput.appendChild(selectLow);
 newPriority.appendChild(newPriorityInput);
 
+//add textArea description of task
+const newTaskDescription = document.createElement('div');
+newTaskDescription.classList.add('prioritylabel');
+newTaskDescription.textContent = "Description: ";
+newTaskDescription.setAttribute('placeholder', "Enter task details here");
+
+const taskDescriptionInput = document.createElement('textarea');
+taskDescriptionInput.setAttribute('cols', '30');
+taskDescriptionInput.setAttribute('rows', '5');
+newTaskDescription.appendChild(taskDescriptionInput);
 //button to submit new task to the project
 const submitNewTaskBtn = document.createElement('button');
-submitNewTaskBtn.textContent = "Add Task";
-submitNewTaskBtn.addEventListener('click', ()=>{
-    
-})
+submitNewTaskBtn.classList.add('prioritylabel');
+submitNewTaskBtn.textContent = "Submit New Task";
 
 
 
 
 addTaskModal.appendChild(newTask);
 addTaskModal.appendChild(newPriority);
+addTaskModal.appendChild(newTaskDescription);
+
 addTaskModal.appendChild(submitNewTaskBtn);
 
 
@@ -56,3 +66,4 @@ export { addTaskModal };
 export { submitNewTaskBtn };
 export { newTaskInput };
 export { newPriorityInput };
+export { taskDescriptionInput };

@@ -6,11 +6,14 @@ let myProjects = JSON.parse(localStorage.getItem('projects')) || [
         tasks: [
                     {
                         name: "Buy apples",
-                        priority: "high"
+                        priority: "high",
+                        description: "Buy 10 red apples for breakfast"
                     },
                     {
                         name: "Buy Eggs",
-                        priority: "medium"
+                        priority: "medium",
+                        description: "buy 2 cartons of eggs for breakfast"
+
                     }
                 ]
     },
@@ -22,12 +25,15 @@ let myProjects = JSON.parse(localStorage.getItem('projects')) || [
                     {
                         id: 0,
                         name: "Sweep and mop the floor",
-                        priority: "high"
+                        priority: "high",
+                        description: "sweep and mop the whole house, URGENT!"
                     },
                     {
                         id: 1,
                         name: "Do laundry",
-                        priority: "high"
+                        priority: "high",
+                        description: "Do our laundry first, then wash baby's clothes"
+
                     }
                 ]
     }

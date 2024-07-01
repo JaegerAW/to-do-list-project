@@ -1,7 +1,7 @@
 import { myProjects } from './myProjects.js';
 
-import { submitNewTaskBtn } from './addTaskModal.js';
-import { addTaskModal, newTaskInput, newPriorityInput } from './addTaskModal.js';
+import { submitNewTaskBtn, taskDescription } from './addTaskModal.js';
+import { addTaskModal, newTaskInput, newPriorityInput, taskDescriptionInput } from './addTaskModal.js';
 import createTask  from './addTask.js';
 
 
@@ -28,7 +28,7 @@ export default function renderMain(event) { //render project from sidebar to mai
     projectCard.appendChild(projectCardHeader);    
    
     const projectDue = document.createElement('div');
-    projectDue.textContent = myProjects[currentProjectIndex].due;
+    projectDue.textContent = `Due: ${myProjects[currentProjectIndex].due}`;
     projectDue.classList.add('date');
     projectCard.appendChild(projectDue);
 
@@ -38,6 +38,19 @@ export default function renderMain(event) { //render project from sidebar to mai
     for (let i = 0; i < myProjects[currentProjectIndex].tasks?.length; i++) {
     
         const tasks = document.createElement('div');
+        
+    //when we want to update after delete, just store with same "key" and the "key" will be updated.
+   
+  
+        tasks.textContent = myProjects[currentProjectIndex].tasks[i].name;
+        tasks.classList.add('tasks');
+        const taskDescription = document.createElement('div');
+        taskDescription.textContent = myProjects[currentProjectIndex].tasks[i].description;
+        taskDescription.classList.add('taskdescription');
+
+        const editBtn = document.createElement('button');
+        editBtn.textContent = "Edit Task";
+
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete Task';
         deleteBtn.addEventListener('click', ()=>{
@@ -46,12 +59,10 @@ export default function renderMain(event) { //render project from sidebar to mai
         renderMain(event);
         })
  
-    //when we want to update after delete, just store with same "key" and the "key" will be updated.
-   
-  
-        tasks.textContent = myProjects[currentProjectIndex].tasks[i].name;
-        tasks.classList.add('tasks');
+
         tasks.appendChild(deleteBtn);
+        tasks.appendChild(editBtn);
+        tasks.appendChild(taskDescription);
         projectCard.appendChild(tasks);
         
     }
@@ -96,19 +107,25 @@ const updateTaskContainer = () => { //exactly the same as renderMain, only witho
     
         const tasks = document.createElement('div');
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete Task';
-        deleteBtn.addEventListener('click', ()=>{
-        myProjects[currentProjectIndex].tasks.splice(i, 1);
-        localStorage.setItem('projects', JSON.stringify(myProjects));
-        updateTaskContainer();
-        })
+     
  
     //when we want to update after delete, just store with same "key" and the "key" will be updated.
    
   
         tasks.textContent = myProjects[currentProjectIndex].tasks[i].name;
         tasks.classList.add('tasks');
+        const taskDescription = document.createElement('div');
+        taskDescription.textContent = myProjects[currentProjectIndex].tasks[i].description;
+        taskDescription.classList.add('taskdescription');
+
+        deleteBtn.textContent = 'Delete Task';
+        deleteBtn.addEventListener('click', ()=>{
+        myProjects[currentProjectIndex].tasks.splice(i, 1);
+        localStorage.setItem('projects', JSON.stringify(myProjects));
+        updateTaskContainer();
+        })
         tasks.appendChild(deleteBtn);
+        tasks.appendChild(taskDescription);
         projectCard.appendChild(tasks);
         
     }
@@ -130,6 +147,8 @@ const updateTaskContainer = () => { //exactly the same as renderMain, only witho
 
 const submitNewTask =() => {
 
+    
+
     if (!myProjects[currentProjectIndex].tasks) {
         myProjects[currentProjectIndex].tasks = 
             [createTask(newTaskInput.value, newPriorityInput.value)];
@@ -138,8 +157,8 @@ const submitNewTask =() => {
             updateTaskContainer();
         
     }
-  
-    else {myProjects[currentProjectIndex].tasks.push(createTask(newTaskInput.value, newPriorityInput.value));
+    
+    else {myProjects[currentProjectIndex].tasks.push(createTask(newTaskInput.value, newPriorityInput.value, taskDescriptionInput.value));
 localStorage.setItem('projects', JSON.stringify(myProjects));
 newTaskInput.value = '';
 addTaskModal.classList.toggle('hidden');
