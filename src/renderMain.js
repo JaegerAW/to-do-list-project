@@ -44,13 +44,18 @@ export default function renderMain(event) { //render project from sidebar to mai
   
         tasks.textContent = myProjects[currentProjectIndex].tasks[i].name;
         tasks.classList.add('tasks');
+        tasks.setAttribute('id', myProjects[currentProjectIndex].tasks[i].id);
         const taskDescription = document.createElement('div');
         taskDescription.textContent = myProjects[currentProjectIndex].tasks[i].description;
         taskDescription.classList.add('taskdescription');
 
-        const editBtn = document.createElement('button');
+       /* const editBtn = document.createElement('button');
         editBtn.textContent = "Edit Task";
-
+        editBtn.addEventListener('click', ()=>{
+            editTaskBtn(this);
+        }
+        )
+        */
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete Task';
         deleteBtn.addEventListener('click', ()=>{
@@ -61,7 +66,7 @@ export default function renderMain(event) { //render project from sidebar to mai
  
 
         tasks.appendChild(deleteBtn);
-        tasks.appendChild(editBtn);
+       // tasks.appendChild(editBtn);
         tasks.appendChild(taskDescription);
         projectCard.appendChild(tasks);
         
@@ -114,6 +119,7 @@ const updateTaskContainer = () => { //exactly the same as renderMain, only witho
   
         tasks.textContent = myProjects[currentProjectIndex].tasks[i].name;
         tasks.classList.add('tasks');
+        tasks.setAttribute('id', myProjects[currentProjectIndex].tasks[i].id);
         const taskDescription = document.createElement('div');
         taskDescription.textContent = myProjects[currentProjectIndex].tasks[i].description;
         taskDescription.classList.add('taskdescription');
@@ -145,13 +151,15 @@ const updateTaskContainer = () => { //exactly the same as renderMain, only witho
 
 }
 
+
+
 const submitNewTask =() => {
 
-    
+   // const currentTaskIndex = myProjects[currentProjectIndex].tasks.findIndex((item)=> item.id === currentTask.id);
 
     if (!myProjects[currentProjectIndex].tasks) {
         myProjects[currentProjectIndex].tasks = 
-            [createTask(newTaskInput.value, newPriorityInput.value)];
+            [createTask(newTaskInput.value, newPriorityInput.value, taskDescriptionInput.value)];
             addTaskModal.classList.toggle('hidden');
             newTaskInput.value = '';
             updateTaskContainer();
