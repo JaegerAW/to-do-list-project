@@ -1,43 +1,4 @@
-let myProjects = JSON.parse(localStorage.getItem('projects')) || [
-    {   
-        id: 0,
-        name: "Go to supermarket",
-        due: "12/2/25",
-        tasks: [
-                    {
-                        name: "Buy apples",
-                        priority: "high",
-                        description: "Buy 10 red apples for breakfast"
-                    },
-                    {
-                        name: "Buy Eggs",
-                        priority: "medium",
-                        description: "buy 2 cartons of eggs for breakfast"
-
-                    }
-                ]
-    },
-    {
-        id: 1,
-        name: "Clean the house",
-        due: "13/2/25",
-        tasks: [
-                    {
-                        id: 0,
-                        name: "Sweep and mop the floor",
-                        priority: "high",
-                        description: "sweep and mop the whole house, URGENT!"
-                    },
-                    {
-                        id: 1,
-                        name: "Do laundry",
-                        priority: "high",
-                        description: "Do our laundry first, then wash baby's clothes"
-
-                    }
-                ]
-    }
-];
+let myProjects = JSON.parse(localStorage.getItem('projects')) || [];
 
 export { myProjects };
 

@@ -3,6 +3,15 @@ import { myProjects } from "./myProjects";
 const addTaskModal = document.createElement('div');
 addTaskModal.classList.add('hidden');
 addTaskModal.classList.add('modal');
+const closeForm = document.createElement('button');
+closeForm.textContent = "Close Form";
+
+closeForm.addEventListener('click', ()=>{
+  
+    addTaskModal.classList.toggle('hidden');
+
+})
+addTaskModal.appendChild(closeForm);
 //const addTaskModal = document.createElement('div');
 
 //addTaskModal.classList.add('hidden');
