@@ -56,7 +56,11 @@ export default function renderMain(event) { //render project from sidebar to mai
         editBtn.addEventListener('click', (e)=>{
             addTaskModal.classList.toggle('hidden');
             currentTaskIndex = parseInt(e.target.id.split('-')[1]);
+            newTaskInput.value = myProjects[currentProjectIndex].tasks[currentTaskIndex].name;
+            newPriorityInput.value = myProjects[currentProjectIndex].tasks[currentTaskIndex].priority;
+            taskDescriptionInput.value = myProjects[currentProjectIndex].tasks[currentTaskIndex].description;
             console.log(currentTaskIndex);
+            submitNewTaskBtn.textContent = "Submit Editted Task";
         }
         )
         
@@ -82,6 +86,7 @@ export default function renderMain(event) { //render project from sidebar to mai
     addTaskBtn.addEventListener('click', ()=>{
         
         addTaskModal.classList.toggle('hidden');
+        submitNewTaskBtn.textContent = 'Add New Task';
 
     });
     mainContent.appendChild(addTaskBtn);
@@ -128,6 +133,20 @@ const updateTaskContainer = () => { //exactly the same as renderMain, only witho
         taskDescription.textContent = myProjects[currentProjectIndex].tasks[i].description;
         taskDescription.classList.add('taskdescription');
 
+        const editBtn = document.createElement('button');
+        editBtn.textContent = "Edit Task";
+        editBtn.setAttribute('id', `edit-${i}`);
+        editBtn.addEventListener('click', (e)=>{
+            addTaskModal.classList.toggle('hidden');
+            currentTaskIndex = parseInt(e.target.id.split('-')[1]);
+            newTaskInput.value = myProjects[currentProjectIndex].tasks[currentTaskIndex].name;
+            newPriorityInput.value = myProjects[currentProjectIndex].tasks[currentTaskIndex].priority;
+            taskDescriptionInput.value = myProjects[currentProjectIndex].tasks[currentTaskIndex].description;
+            console.log(currentTaskIndex);
+            submitNewTaskBtn.textContent = "Submit Editted Task";
+        }
+        )
+
         deleteBtn.textContent = 'Delete Task';
         deleteBtn.addEventListener('click', ()=>{
         myProjects[currentProjectIndex].tasks.splice(i, 1);
@@ -135,6 +154,7 @@ const updateTaskContainer = () => { //exactly the same as renderMain, only witho
         updateTaskContainer();
         })
         tasks.appendChild(deleteBtn);
+        tasks.appendChild(editBtn);
         tasks.appendChild(taskDescription);
         projectCard.appendChild(tasks);
         
@@ -144,7 +164,7 @@ const updateTaskContainer = () => { //exactly the same as renderMain, only witho
     addTaskBtn.textContent = "Add Task";
     mainContent.appendChild(addTaskBtn);
     addTaskBtn.addEventListener('click', ()=>{
-        
+        submitNewTaskBtn.textContent = 'Add New Task';
         addTaskModal.classList.toggle('hidden');
 
     });
@@ -158,21 +178,40 @@ const updateTaskContainer = () => { //exactly the same as renderMain, only witho
 
 
 const submitNewTask =() => {
-
+    const taskObj = {
+        name: newTaskInput.value,
+        priority: newPriorityInput.value,
+        description: taskDescriptionInput.value
+    };
    // const currentTaskIndex = myProjects[currentProjectIndex].tasks.findIndex((item)=> item.id === currentTask.id);
-
-    if (!myProjects[currentProjectIndex].tasks) {
+    if (!newTaskInput.value && !taskDescriptionInput.value) {
+        alert('Please enter task details');
+    }
+    else if (!myProjects[currentProjectIndex].tasks) { //new project, no task property yet, assign task(s) property
         myProjects[currentProjectIndex].tasks = 
             [createTask(newTaskInput.value, newPriorityInput.value, taskDescriptionInput.value)];
             addTaskModal.classList.toggle('hidden');
             newTaskInput.value = '';
+            taskDescriptionInput.value = '';
             updateTaskContainer();
         
     }
+    else if (myProjects[currentProjectIndex].tasks[currentTaskIndex]) { //if task exists, edit task
+        
+        myProjects[currentProjectIndex].tasks[currentTaskIndex] = taskObj;
+        localStorage.setItem('projects', JSON.stringify(myProjects));
+        newTaskInput.value = '';
+        taskDescriptionInput.value = '';
+        addTaskModal.classList.toggle('hidden');
+        currentTaskIndex = null;//after submit editted task, turn off currentTaskIndex, bug fixed where we keep on editing the same task index when we create new task.
+        updateTaskContainer();
+        }
+
     
-    else {myProjects[currentProjectIndex].tasks.push(createTask(newTaskInput.value, newPriorityInput.value, taskDescriptionInput.value));
+    else {myProjects[currentProjectIndex].tasks.push(createTask(newTaskInput.value, newPriorityInput.value, taskDescriptionInput.value)); //project already made, tasks property exist, but no currentTaskIndex;
 localStorage.setItem('projects', JSON.stringify(myProjects));
 newTaskInput.value = '';
+taskDescriptionInput.value = '';
 addTaskModal.classList.toggle('hidden');
 updateTaskContainer();
     }};
