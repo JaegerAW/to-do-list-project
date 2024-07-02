@@ -37,7 +37,6 @@ export default function renderMain(event) { //render project from sidebar to mai
     projectDue.classList.add('date');
     projectCard.appendChild(projectDue);
 
-    
 
        
     
@@ -197,6 +196,7 @@ const submitNewTask =() => {
     else if (!myProjects[currentProjectIndex].tasks) { //new project, no task property yet, assign task(s) property
         myProjects[currentProjectIndex].tasks = 
             [createTask(newTaskInput.value, newPriorityInput.value, taskDescriptionInput.value)];
+            localStorage.setItem('projects', JSON.stringify(myProjects));
             addTaskModal.classList.toggle('hidden');
             reset();
             updateTaskContainer();

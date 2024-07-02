@@ -19,7 +19,7 @@ const sideBar = document.querySelector('#sidebarproject');
 function renderSidebar() {
     let sidebarHTML = '';
     myProjects.forEach((project, index) => {
-        sidebarHTML += `<div class="projects" id="project-${index}">${project.name}</p></div>`
+        sidebarHTML += `<div class="projects" id="project-${index}">${project.name}</div>`
 
     })
     sideBar.innerHTML += sidebarHTML;
