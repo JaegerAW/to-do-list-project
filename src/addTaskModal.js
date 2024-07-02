@@ -7,7 +7,8 @@ const closeForm = document.createElement('button');
 closeForm.textContent = "Close Form";
 
 closeForm.addEventListener('click', ()=>{
-  
+    newTaskInput.value = '';
+    taskDescriptionInput.value = '';
     addTaskModal.classList.toggle('hidden');
 
 })
