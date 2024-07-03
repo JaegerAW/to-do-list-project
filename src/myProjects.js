@@ -1,4 +1,4 @@
-let myProjects = JSON.parse(localStorage.getItem('projects')) || [];
+let myProjects = JSON.parse(localStorage.getItem("projects")) || [];
 
 export { myProjects };
 

@@ -1,43 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List Project</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div class="container">
-        <div class="sidebar" id="sidebar">
-            <h2>TO DO LIST</h2>
-            <form class="form">
-                <h3>Add New Project</h3>
-                <div class="userinput">
-                    <label for="newtitle">Title:</label>
-                    <input type="text" id="newtitle" required>
-                </div>
-                
-                <div class="userinput">
-                    <label for="newdue">Due Date:</label>
-                    <input type="date" id="newdue" required>
+      <div class="sidebar" id="sidebar">
+        <h2>TO DO LIST</h2>
+        <form class="form">
+          <h3>Add New Project</h3>
+          <div class="userinput">
+            <label for="newtitle">Title:</label>
+            <input type="text" id="newtitle" required />
+          </div>
 
-                </div>
-                <button type="submit" id="addnewproject">Add Project</button>
-            
-                
+          <div class="userinput">
+            <label for="newdue">Due Date:</label>
+            <input type="date" id="newdue" required />
+          </div>
+          <button type="submit" id="addnewproject">Add Project</button>
+        </form>
+        <div class="sidebar" id="sidebarproject"></div>
+      </div>
 
-            </form>
-            <div class="sidebar" id="sidebarproject"></div>
-        </div>
-        
-        <div class="main" id="main">
-       
-
-            
-        </div>
-        
-
+      <div class="main" id="main"></div>
     </div>
     <footer></footer>
-</body>
+  </body>
 </html>

@@ -1,94 +1,91 @@
 * {
-   
-   --sidebar-color: #0CB8FD;
-   padding: 0;
-   margin: 0;
+  --sidebar-color: #0cb8fd;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    height: 100vh;
-    overflow: scroll;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+  overflow: scroll;
 }
 
-
-.sidebar{
-    background-color: var(--sidebar-color);
+.sidebar {
+  background-color: var(--sidebar-color);
 }
 
 .sidebar > h1 {
-    background-color: var(--sidebar-color);
+  background-color: var(--sidebar-color);
 }
 
 .projects {
-    background-color: var(--sidebar-color);
-    color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    padding: 20px;
-    font-weight: bold;
+  background-color: var(--sidebar-color);
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding: 20px;
+  font-weight: bold;
 }
 .card {
-    width: 400px;
-   background-color: #F6FCFF;
-    border-radius: 20px;
-    box-shadow: 2px 2px 2px grey;
-    padding: 20px;
-    margin: 15px;
+  width: 400px;
+  background-color: #f6fcff;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px grey;
+  padding: 20px;
+  margin: 15px;
 }
 
 .cardheader {
-    padding-top: 15px;
-    padding-left: 15px;
-    font-size: 30px;
+  padding-top: 15px;
+  padding-left: 15px;
+  font-size: 30px;
 }
 
 .date {
-    position: relative;
-    left: 0px;
-    top: 0px;
-
+  position: relative;
+  left: 0px;
+  top: 0px;
 }
 
 .high {
-    background-color: red;
-    
+  background-color: red;
 }
 
 .modal {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 400px;
-    height: 300px;
-    border: 2px solid black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  border: 2px solid black;
 }
 
 .modallabel {
-    margin-left: 100px;
-    margin-top: 100px;
+  margin-left: 100px;
+  margin-top: 100px;
 }
 
 .prioritylabel {
-    margin-left: 100px;
-    margin-top: 20px;
+  margin-left: 100px;
+  margin-top: 20px;
 }
 
 select {
-    border: 2px solid black;
-    width: 150px;
+  border: 2px solid black;
+  width: 150px;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .tasks {
-    font-weight: bold;
-    font-size: 20px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .tasks > .taskdescription {
-    font-weight: lighter;
-    font-size: 12px;
+  font-weight: lighter;
+  font-size: 12px;
 }

@@ -1,77 +1,50 @@
-import './styles.css';
-import { myProjects } from './myProjects.js';
-import renderMain from './renderMain.js';
-import createTask from './addTask.js';
-import { addTaskModal } from './addTaskModal.js';
+import "./styles.css";
+import { myProjects } from "./myProjects.js";
+import renderMain from "./renderMain.js";
+import createTask from "./addTask.js";
+import { addTaskModal } from "./addTaskModal.js";
 //import  updateTaskContainer  from './renderMain.js';
 
-
-
-
-
-const mainContent = document.querySelector('#main');
-const sideBar = document.querySelector('#sidebarproject');
-
+const mainContent = document.querySelector("#main");
+const sideBar = document.querySelector("#sidebarproject");
 
 const deleteProject = (e) => {
-    let deleteProjectIndex = e.target.id.split('-')[1];
-    console.log(deleteProjectIndex);    
-    myProjects.splice(deleteProjectIndex,1);
-    localStorage.setItem('projects', JSON.stringify(myProjects));
-    renderSidebar();
-    
-    
-}
-
-
+  let deleteProjectIndex = e.target.id.split("-")[1];
+  console.log(deleteProjectIndex);
+  myProjects.splice(deleteProjectIndex, 1);
+  localStorage.setItem("projects", JSON.stringify(myProjects));
+  renderSidebar();
+};
 
 function renderSidebar() {
-    let sidebarHTML = '';
-    myProjects.forEach((project, index) => {
-        sidebarHTML += `<div class="projects" id="project-${index}">${project.name}</div>
+  let sidebarHTML = "";
+  myProjects.forEach((project, index) => {
+    sidebarHTML += `<div class="projects" id="project-${index}">${project.name}</div>
                         <button class="delete" id="delete-${index}">Delete Project</button>
-        `
-
-    })
-    sideBar.innerHTML = "";
-    sideBar.innerHTML += sidebarHTML;
-    const projects = document.querySelectorAll('.projects');
-    projects.forEach(project => 
-        project.addEventListener('click', renderMain)
-    )
-    const deleteProjectBtn = document.querySelectorAll('.delete');
-    deleteProjectBtn.forEach(btn => {
-        btn.addEventListener('click', deleteProject);
-    })
+        `;
+  });
+  sideBar.innerHTML = "";
+  sideBar.innerHTML += sidebarHTML;
+  const projects = document.querySelectorAll(".projects");
+  projects.forEach((project) => project.addEventListener("click", renderMain));
+  const deleteProjectBtn = document.querySelectorAll(".delete");
+  deleteProjectBtn.forEach((btn) => {
+    btn.addEventListener("click", deleteProject);
+  });
 }
-
-
-
 
 renderSidebar();
 
-
-
-
-
-
 mainContent.appendChild(addTaskModal);
 
+//sidebar shows a list of projects
+//sidebar can run a forEach on a projects array
+//project1 in array has name and duedate when created, project1.items.push(item) when click on add task
+//projectsArray.forEach((project)=> {})
 
+//content shows a project when it's clicked on the sidebar
 
-
-
-    //sidebar shows a list of projects
-    //sidebar can run a forEach on a projects array
-    //project1 in array has name and duedate when created, project1.items.push(item) when click on add task
-    //projectsArray.forEach((project)=> {})
-
-
-
-    //content shows a project when it's clicked on the sidebar
-
-
-    /*
+/*
 function renderMain(event) {
 
     let index = parseInt(event.target.id.split('-')[1]);
@@ -98,24 +71,6 @@ function renderMain(event) {
 
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 function logMessage() {
