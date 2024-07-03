@@ -101,7 +101,7 @@ export default function renderMain(event) { //render project from sidebar to mai
 
 }
 
-const updateTaskContainer = () => { //exactly the same as renderMain, only without reassigning the currentProjectIndex. used for after altering myProjects array(deleteTask, addTask)
+export function updateTaskContainer() { //exactly the same as renderMain, only without reassigning the currentProjectIndex. used for after altering myProjects array(deleteTask, addTask)
     mainContent.textContent = '';
     mainContent.appendChild(addTaskModal); //dialog to input new task and its priority
 

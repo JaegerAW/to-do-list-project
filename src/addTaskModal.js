@@ -4,7 +4,8 @@ const addTaskModal = document.createElement('div');
 addTaskModal.classList.add('hidden');
 addTaskModal.classList.add('modal');
 const closeForm = document.createElement('button');
-closeForm.textContent = "Close Form";
+
+closeForm.innerHTML = 'Close Form';
 
 closeForm.addEventListener('click', ()=>{
     newTaskInput.value = '';
